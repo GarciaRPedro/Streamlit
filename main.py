@@ -40,21 +40,21 @@ st.markdown("""
 
 ##### Digite a baixo o Project_id e o Select
             """)
-st.space(size='small')
+st.write("")
 
 select = st.text_input('Select', placeholder='Ex.: SELECT * FROM project_id.dataset.nome_da_tabela')
 
-st.space('xxsmall')
+st.write("")
 
 project_id = st.text_input('Project ID', placeholder= 'Ex.: infra-itaborai')
 
 esquerda, direita= st.columns([3, 1])
 
 with direita:
-        st.space('xxsmall')
+        st.write("")
         st.button("Query", type="secondary", 
-                on_click= consulta, icon= "🔎",
-                icon_position="right")
+                on_click= consulta, icon= "🔎")
+                # icon_position="right")
         
 if "tabela" in st.session_state:
     st.markdown("### Resultado da consulta")
@@ -63,7 +63,7 @@ if "tabela" in st.session_state:
 elif "erro" in st.session_state:
     st.markdown("### Erro na consulta")
     st.exception(st.session_state.erro)
-st.space('small')
+st.write("")
 # Formato exportação
 
 
@@ -116,8 +116,8 @@ else:
     st.session_state.export_dis= True
 
 with col2: 
-    st.space('small')
+    st.write("")
     if st.button("Exportar", type="secondary", disabled= st.session_state.export_dis, 
                  on_click= exportar):
-        st.success(" Exportação cocluida com sucesso")
+        st.success(" Exportação concluída com sucesso")
 
